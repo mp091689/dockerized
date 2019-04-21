@@ -1,5 +1,7 @@
 FROM php:7.3-fpm-alpine
 
+MAINTAINER Mykyta Popov <mp091689@gmail.com>
+
 RUN apk update \
 # Add new group and new user
     && addgroup -g 1000 -S dev \
