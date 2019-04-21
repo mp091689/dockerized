@@ -26,7 +26,7 @@ services:
         image: mysql:5.7
         restart: always
         environment:
-            MYSQL_DATABASE: db
+            MYSQL_DATABASE: ${DB_NAME}
             MYSQL_USER: user
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: secret
