@@ -11,7 +11,8 @@ services:
             - ${NGINX_PORT}:80
         environment:
             - NGINX_HOST=${NGINX_HOST}
-        command: /bin/ash -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+            - NGINX_PUBLIC=${NGINX_PUBLIC}
+        command: /bin/ash -c "envsubst '$$NGINX_HOST, $$NGINX_PUBLIC' < /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
         depends_on:
             - php
     php:
