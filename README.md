@@ -7,8 +7,8 @@ The server runs several containers:
 * PHP-FPM:7.3
 * MySQL:5.7
 
-## [Usage](docs/usage.md)
+### [Usage](docs/usage.md)
 
-### [PHP-image features](docs/php-features.md)
+### [php-image](docs/php-features.md)
 
-### Noty [Dynamic nginx config](docs/dynamic-nginx.md)
+### [dynamic](docs/dynamic-nginx.md) Dynamic nginx config "How to" noty.
