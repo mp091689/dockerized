@@ -18,6 +18,8 @@ services:
         restart: always
         volumes:
             - ${APP_PATH}:/app
+        depends_on:
+            - mq
     db:
         image: mysql:5.7
         restart: always
@@ -30,3 +32,16 @@ services:
             - 3306:3306
         volumes:
             - ./db/mysql:/var/lib/mysql
+    cache:
+        image: redis
+    mq:
+        image: rabbitmq:3-management
+        restart: always
+        environment:
+            RABBITMQ_DEFAULT_USER: mquser
+            RABBITMQ_DEFAULT_PASS: mqsecret
+        ports:
+            - 15672:15672
+            - 5672:5672
+        volumes:
+            - ./mq/rabbitmq:/var/lib/rabbitmq
